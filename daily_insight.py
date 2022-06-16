@@ -14,7 +14,7 @@ from streamlit import caching
 st.set_page_config(layout="wide")
 
 def home_page():
-  st.markdown("""# Daily Weather Insight
+  st.markdown("""# HK Daily Weather Insight
   ---
   HK Weather Summary Web App: https://share.streamlit.io/chekyuetwong/hk_rain_report/main/hk_rain.py
   
