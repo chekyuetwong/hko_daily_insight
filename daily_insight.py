@@ -1,4 +1,4 @@
-from daily_weather import daily_weather
+#from daily_weather import daily_weather
 import streamlit as st
 import os, sys
 from selenium import webdriver
@@ -26,7 +26,7 @@ def installff():
 _ = installff()
 to_func = {
   "Home": home_page,
-  "Daily Weather": daily_weather,
+  #"Daily Weather": daily_weather,
   
 }
 
