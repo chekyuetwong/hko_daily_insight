@@ -8,7 +8,7 @@ def home_page():
   ---
   Relevant Link:
 
-  HK Weather Summary Web App: https://share.streamlit.io/chekyuetwong/hk_rain_report/main/hk_rain.py
+  HK Weather Summary Web App: https://share.streamlit.io/tions-icu/hk_rain_report/main/hk_rain.py
   
   """)
 
