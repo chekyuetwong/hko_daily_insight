@@ -49,12 +49,15 @@ def daily_weather():
     st.title("Daily Weather Summary")
     st.markdown("---")
   
-    a1, a2, a3 = st.columns(3)
-    with a1:
-      ds = st.date_input("Start Date")
-    with a2:
-      de = st.date_input("End Date")
-      st.markdown("---")
+    with st.form("form1"):
+      a1, a2, a3 = st.columns(3)
+      with a1:
+        ds = st.date_input("Start Date")
+      with a2:
+        de = st.date_input("End Date")
+      with a3:
+        st.form_submit_button("Update")
+    st.markdown("---")
     st.write("Loading Progress:")
     p_bar = st.sidebar.progress(0)
     if st.button('Refresh Data from HKO'):
