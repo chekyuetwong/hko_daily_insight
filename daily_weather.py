@@ -100,7 +100,7 @@ def daily_weather():
 
   st.write("Data")
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
-  st.write(chartdata.describe())
+  st.write(str(chartdata.describe()))
   st.write("Data Source: https://www.hko.gov.hk/en/cis/dailyExtract.htm")
 
 def isnumber(x):
