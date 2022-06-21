@@ -98,7 +98,8 @@ def daily_weather():
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
   
-  st.write(dfc["Total Rainfall (mm)"].sum())
+  rain = pd.to_numeric(dfc["Total Rainfall (mm)"], errors='coerce')
+  st.write("Total Rainfall for the Period: {:.2f}mm".format(rain.sum()))
   st.write()
   st.write("Data")
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
