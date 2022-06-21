@@ -1,4 +1,5 @@
 import streamlit as st
+import os, sys
 from streamlit import caching
 st.set_page_config(layout="wide")
 
@@ -18,7 +19,6 @@ def installff():
 
 try:
   from daily_weather import daily_weather
-  import os, sys
   from selenium import webdriver
   from selenium.webdriver import FirefoxOptions
   opts = FirefoxOptions()
