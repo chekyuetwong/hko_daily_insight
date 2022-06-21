@@ -53,6 +53,5 @@ try:
 except Exception as e:
   st.title("Error Encountered")
   st.write(e)
-  st.write("Setup = "+str(setup))
   if st.button('Try Resolving by resetting the Web Driver'):
     _ = installff()
