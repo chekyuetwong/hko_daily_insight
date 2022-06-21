@@ -1,15 +1,4 @@
-from daily_weather import daily_weather
 import streamlit as st
-import os, sys
-from selenium import webdriver
-from selenium.webdriver import FirefoxOptions
-opts = FirefoxOptions()
-opts.add_argument("--headless")
-import matplotlib.pyplot as plt
-import pandas as pd
-from bs4 import BeautifulSoup
-import time
-import matplotlib.dates as mdates
 from streamlit import caching
 st.set_page_config(layout="wide")
 
@@ -28,6 +17,17 @@ def installff():
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
 try:
+  from daily_weather import daily_weather
+  import os, sys
+  from selenium import webdriver
+  from selenium.webdriver import FirefoxOptions
+  opts = FirefoxOptions()
+  opts.add_argument("--headless")
+  import matplotlib.pyplot as plt
+  import pandas as pd
+  from bs4 import BeautifulSoup
+  import time
+  import matplotlib.dates as mdates
   to_func = {
     "Home": home_page,
     "Daily Weather": daily_weather,  
