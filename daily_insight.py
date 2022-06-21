@@ -27,7 +27,12 @@ def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
-st.markdown(
+try:
+  to_func = {
+    "Home": home_page,
+    "Daily Weather": daily_weather,  
+  }
+  st.markdown(
     """
     <style>
     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
@@ -40,13 +45,6 @@ st.markdown(
     </style>
     """,
     unsafe_allow_html=True,)
-
-try:
-  to_func = {
-    "Home": home_page,
-    "Daily Weather": daily_weather,
-    
-  }
 
   with st.sidebar:
     demo_name = st.selectbox("Applications", to_func.keys())
