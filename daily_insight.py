@@ -42,7 +42,6 @@ st.markdown(
     unsafe_allow_html=True,)
 
 try:
-  installff()
   to_func = {
     "Home": home_page,
     "Daily Weather": daily_weather,
