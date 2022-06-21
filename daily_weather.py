@@ -97,13 +97,12 @@ def daily_weather():
   fig = px.line(chartdata.iloc[:,1:])
   fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
   st.plotly_chart(fig)
-
   
   st.write("Total Rainfall for the Period: %.2f", chartdata.loc[:,"Total Rainfall (mm)"].sum())
   st.write()
   st.write("Data")
   AgGrid(chartdata, height=300,fit_columns_on_grid_load=True)
-    st.write("Data Source: https://www.hko.gov.hk/en/cis/dailyExtract.htm")
+  st.write("Data Source: https://www.hko.gov.hk/en/cis/dailyExtract.htm")
 
 def isnumber(x):
     try:
