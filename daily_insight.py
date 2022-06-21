@@ -17,7 +17,7 @@ def home_page():
   st.markdown("""# HK Daily Weather Insight
   ---
   Relevant Link:
-  
+
   HK Weather Summary Web App: https://share.streamlit.io/chekyuetwong/hk_rain_report/main/hk_rain.py
   
   """)
@@ -26,13 +26,6 @@ def home_page():
 def installff():
   os.system('sbase install geckodriver')
   os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
-
-_ = installff()
-to_func = {
-  "Home": home_page,
-  "Daily Weather": daily_weather,
-  
-}
 
 st.markdown(
     """
@@ -48,8 +41,22 @@ st.markdown(
     """,
     unsafe_allow_html=True,)
 
+try:
+  _ = installff()
+  to_func = {
+    "Home": home_page,
+    "Daily Weather": daily_weather,
+    
+  }
+    _ = installff()
+    with st.sidebar:
+      demo_name = st.selectbox("Applications", to_func.keys())
+    to_func[demo_name]()
 
-_ = installff()
-with st.sidebar:
-  demo_name = st.selectbox("Applications", to_func.keys())
-to_func[demo_name]()
+except Exception as e:
+  st.title("Error Encountered")
+  st.write(e)
+  st.write("Setup = "+str(setup))
+  if st.button('Try Resolving by resetting the Web Driver'):
+    _ = installff()
+    setup=True

@@ -57,6 +57,8 @@ def daily_weather():
       st.markdown("---")
     st.write("Loading Progress:")
     p_bar = st.sidebar.progress(0)
+    if st.button('Refresh Data from HKO'):
+      hko_daily_table.clear()
 
   all_col = ["Day", "Mean Pressure (hPa)", "Absolute Daily Max (deg. C)", "Mean (deg. C)", "Absolute Daily Min (deg. C)", "Mean Dew Point (deg. C)", "Mean Relative Humidity (%)", "Mean Amount", "Total Rainfall (mm)", "Total Bright Sunshine (hours)", "Prevailing Wind Direction (degrees)", "Mean Wind Speed (km/h)"] 
   dfc=pd.DataFrame(columns=all_col)
