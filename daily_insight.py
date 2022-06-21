@@ -42,16 +42,16 @@ st.markdown(
     unsafe_allow_html=True,)
 
 try:
-  _ = installff()
+  installff()
   to_func = {
     "Home": home_page,
     "Daily Weather": daily_weather,
     
   }
-    _ = installff()
-    with st.sidebar:
-      demo_name = st.selectbox("Applications", to_func.keys())
-    to_func[demo_name]()
+
+  with st.sidebar:
+    demo_name = st.selectbox("Applications", to_func.keys())
+  to_func[demo_name]()
 
 except Exception as e:
   st.title("Error Encountered")
