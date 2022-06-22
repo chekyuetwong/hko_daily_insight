@@ -18,6 +18,7 @@ def installff():
 
 try:
   from daily_weather import daily_weather
+  from regional_rain import region_rain
   from selenium import webdriver
   from selenium.webdriver import FirefoxOptions
   opts = FirefoxOptions()
@@ -30,6 +31,7 @@ try:
   to_func = {
     "Home": home_page,
     "Daily Weather": daily_weather,  
+    "Regional Rainfall":region_rain,
   }
 
   with st.sidebar:
