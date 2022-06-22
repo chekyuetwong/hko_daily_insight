@@ -51,10 +51,10 @@ def region_rain():
         ds = ds - timedelta(hours=1)
     
     if de.minute > 45:
-        de=de.replace(minute=45)
+        de=de.replace(minute=0)
         de = de + timedelta(hours=1)
     elif de.minute<45:
-        de=de.replace(minute=45)    
+        de=de.replace(minute=0)    
 
     date1=ds
     date2=de
@@ -68,7 +68,7 @@ def region_rain():
     from_web=pd.DataFrame()
 
     i=0
-    for run in domain[:-2]:
+    for run in domain:
         d = f'{run.day:02d}'
         h = f'{run.hour:02d}'
         m = f'{run.month:02d}'
@@ -112,7 +112,7 @@ def region_rain():
 
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
         i+=1
-        progress=i/(len(domain)-1)
+        progress=i/len(domain)
         p_bar.progress(progress)
 
     for i in district:
