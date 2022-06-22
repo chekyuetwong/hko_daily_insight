@@ -4,7 +4,7 @@ from streamlit import caching
 st.set_page_config(layout="wide")
 
 def home_page():
-  st.markdown("""# HK Daily Weather Insight
+  st.markdown("""# HK Daily/Hourly Weather Insight
   ---
   Relevant Link:
 
