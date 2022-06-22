@@ -31,7 +31,7 @@ try:
   to_func = {
     "Home": home_page,
     "Daily Weather": daily_weather,  
-    "Regional Rainfall":region_rain,
+    "Hourly Regional Rainfall":region_rain,
   }
 
   with st.sidebar:
