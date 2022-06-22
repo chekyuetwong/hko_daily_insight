@@ -118,14 +118,7 @@ def region_rain():
         i+=1
         progress=i/len(domain)
         p_bar.progress(progress)
-        chartdata=from_web
-        fig = px.line(chartdata.iloc[:,3:], labels={
-            "variable": "District",
-            "index": "Time",
-            "value": "Recorded Hourly Rainfall (mm)",})
-        fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
-        out_plot.plotly_chart(fig)
-        out_table.write(from_web)
+        out_plot=st.spinner("Loading...")
 
 
     driver.close()
