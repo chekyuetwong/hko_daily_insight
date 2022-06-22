@@ -21,6 +21,7 @@ def region_rain():
     from selenium.webdriver.common.by import By
     from datetime import datetime
     from datetime import timedelta
+    import plotly.express as px
     import streamlit as st
     default_time1 = tm(0,0)
     default_time2 = tm(23,59)
@@ -61,7 +62,7 @@ def region_rain():
 
     domain = pd.date_range(start=ds, end=de, freq='H')
     #domain=domain[:-2]
-    st.write(domain)
+    #st.write(domain)
 
 
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
@@ -119,7 +120,7 @@ def region_rain():
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
 
-    status.success("All downloading completed")
+    status.success("All download completed")
     district_max_h=district_max_h.applymap(out_max, na_action='ignore')
     filename = "max hr regional rain "+date1.strftime("%m%d-%H")+" to "+date2.strftime("%m%d-%H")+".csv"
 
@@ -131,6 +132,11 @@ def region_rain():
     district_max_h.iloc[:, 1:]=district_max_h.iloc[:, 1:].astype('int')
     district_max_h.insert(1, 'Max District', district_max_h.iloc[:,2:].replace(0, np.nan).idxmax(axis=1))
     district_max_h.insert(1, 'Max Rainfall', district_max_h.iloc[:,3:].max(axis=1))
+    
+    chartdata=district_max_h 
+    fig = px.line(chartdata.iloc[:,3:])
+    fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
+    st.plotly_chart(fig)
     st.write(district_max_h)
     csv = convert_df(district_max_h)
     st.download_button("Download CSV", csv, filename, "text/csv", key='download-csv')
