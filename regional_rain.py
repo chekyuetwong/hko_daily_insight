@@ -39,6 +39,7 @@ def region_rain():
                 End_Date = st.date_input("End Date")
                 End_Time = st.time_input('End Time', default_time1)
             st.form_submit_button("Submit")
+        p_status = st.empty()
         p_bar = st.sidebar.progress(0)
         status=st.empty()
 
@@ -117,7 +118,7 @@ def region_rain():
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
         i+=1
         progress=i/len(domain)
-        st.write("Progress: {0:.2f}%".format(progress*100))
+        p_status.write("Progress: {0:.2f}%".format(progress*100))
         p_bar.progress(progress)
     driver.close()
 
