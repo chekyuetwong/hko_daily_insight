@@ -49,12 +49,11 @@ def daily_weather():
     st.title("Daily Weather Summary")
   
     with st.form("form1"):
-      a1, a2, a3 = st.columns(3)
+      a1, a2 = st.columns(2)
       with a1:
         ds = st.date_input("Start Date")
       with a2:
         de = st.date_input("End Date")
-      #with a3:
       st.form_submit_button("Update")
 
     st.write("Loading Progress:")
