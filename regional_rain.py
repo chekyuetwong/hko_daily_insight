@@ -68,6 +68,9 @@ def region_rain():
     district=["Central & Western District","Eastern District","Islands District","Kowloon City","Kwai Tsing","Kwun Tong","North District","Sai Kung","Sha Tin","Sham Shui Po","Southern District","Tai Po","Tsuen Wan","Tuen Mun","Wan Chai","Wong Tai Sin","Yau Tsim Mong","Yuen Long"]
     from_web=pd.DataFrame()
 
+    out_plot=st.empty()
+    out_table=st.empty()
+        
     i=0
     for run in domain:
         d = f'{run.day:02d}'
@@ -140,7 +143,7 @@ def region_rain():
                      "value": "Recorded Hourly Rainfall (mm)",
                  })
     fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
-    st.plotly_chart(fig)
-    st.write(district_max_h)
+    out_plot.plotly_chart(fig)
+    out_table.write(district_max_h)
     csv = convert_df(district_max_h)
     st.download_button("Download CSV", csv, filename, "text/csv", key='download-csv')
