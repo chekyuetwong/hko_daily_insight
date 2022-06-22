@@ -43,3 +43,4 @@ except Exception as e:
   st.write(e)
   if st.button('Try Resolving by resetting the Web Driver'):
     _ = installff()
+    st.experimental_rerun()
