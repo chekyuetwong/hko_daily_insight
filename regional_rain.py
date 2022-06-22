@@ -114,7 +114,8 @@ def region_rain():
         i+=1
         progress=i/len(domain)
         p_bar.progress(progress)
-
+    driver.close()
+    
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
 
