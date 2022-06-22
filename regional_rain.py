@@ -117,13 +117,14 @@ def region_rain():
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
         i+=1
         progress=i/len(domain)
+        st.write("Progress: {0:.2f}%".format(progress*100))
         p_bar.progress(progress)
     driver.close()
 
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
     status.success("Download completed!")
-    
+
     district_max_h=district_max_h.applymap(out_max, na_action='ignore')
     filename = "max hr regional rain "+date1.strftime("%m%d-%H")+" to "+date2.strftime("%m%d-%H")+".csv"
 
