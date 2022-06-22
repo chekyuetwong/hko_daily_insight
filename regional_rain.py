@@ -53,7 +53,7 @@ def region_rain():
     if de.minute > 45:
         de=de.replace(minute=0)
         de = de + timedelta(hours=1)
-    elif de.minute<45:
+    elif de.minute<=45:
         de=de.replace(minute=0)    
 
     date1=ds
@@ -115,7 +115,7 @@ def region_rain():
         progress=i/len(domain)
         p_bar.progress(progress)
     driver.close()
-    
+
     for i in district:
         district_max_h[i]=from_web.loc[from_web["Region"]==i].loc[:, "Rainfall"]  
 
