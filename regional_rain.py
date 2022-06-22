@@ -68,7 +68,7 @@ def region_rain():
     from_web=pd.DataFrame()
 
     i=0
-    for run in domain:
+    for run in domain[:-1]:
         d = f'{run.day:02d}'
         h = f'{run.hour:02d}'
         m = f'{run.month:02d}'
