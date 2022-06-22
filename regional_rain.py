@@ -93,8 +93,6 @@ def region_rain():
         time.sleep(1)
         html = driver.page_source
         soup = BeautifulSoup(html, "html.parser")
-
-        #soup
         mainc = soup.find(id='rainfalldata')
         rows = mainc.find_all('tr')
         
