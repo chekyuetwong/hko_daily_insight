@@ -134,7 +134,7 @@ def region_rain():
     district_max_h.insert(1, 'Max Rainfall', district_max_h.iloc[:,3:].max(axis=1))
     
     chartdata=district_max_h 
-    fig = px.line(chartdata.iloc[:,3:])
+    fig = px.bar(chartdata.iloc[:,3:])
     fig.update_layout(autotypenumbers='convert types', width=1200, height=600)
     st.plotly_chart(fig)
     st.write(district_max_h)
