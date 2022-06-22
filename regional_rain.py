@@ -68,7 +68,7 @@ def region_rain():
     from_web=pd.DataFrame()
 
     i=0
-    for run in domain[:-1]:
+    for run in domain[:-2]:
         d = f'{run.day:02d}'
         h = f'{run.hour:02d}'
         m = f'{run.month:02d}'
@@ -112,7 +112,7 @@ def region_rain():
 
         district_max_h=pd.DataFrame(index=from_web.index.unique(), columns=district)
         i+=1
-        progress=i/len(domain)
+        progress=i/(len(domain)-1)
         p_bar.progress(progress)
 
     for i in district:
